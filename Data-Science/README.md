@@ -54,7 +54,7 @@ Graphically:
 - [x] ? Graphing any Numerical Sections of the dataset.
 
 In addition:
-- [ ] Comment on the dataset that is provided to you based on the EDA.
+- [x] Comment on the dataset that is provided to you based on the EDA.
 
 You are also to convert any columns to their appropriate types when required.
 
@@ -64,7 +64,7 @@ Now that you know your data inside and out, you are to clean the dataset by remo
 Note that the models used in the next section only understand numbers.
 
 Student Checklist:
-- [ ] Data deemed useless removed.
+- [x] Data deemed useless removed.
 - [ ] Dataset converted to a form that a model can use.
 - [ ] A train and test dataset for the model made.
 - [ ] State a reason for each changes made to the DataFrame.

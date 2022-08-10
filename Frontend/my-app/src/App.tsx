@@ -15,6 +15,9 @@ function App() {
     paperContainer: {
         backgroundImage: `url(${BackgroundImage})`,
         height: '100vh',
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover"
     }
 };
 
@@ -60,7 +63,7 @@ function App() {
                       style = {{borderRadius: 100}}
                     ></img>
                   ) : (
-                    <Skeleton width={300} height={300} />
+                    <Skeleton width={200} height={200} />
                   )}
                 </Box>
               </Grid>
@@ -68,7 +71,7 @@ function App() {
               <Grid item sx={{display: "flex", justifyContent: "center", paddingBottom: 5, textAlign: "center"}}>
                 <Box>
                   {villager === undefined || villager === null ? (
-                    <h1></h1>
+                    ""
                   ) : (
                     <div>
                       <h1>{villagerName}</h1>
@@ -105,11 +108,11 @@ function App() {
     // Generate a random villager id
     const id = Math.floor(Math.random() * 391) + 1;
 
-    console.log(BASE_API_URL + id) // comment out when finished
+    // console.log(BASE_API_URL + id) 
     axios.get(BASE_API_URL + id).then((res) => {
       setVillager(res.data);
       setVillagerName(res.data.name["name-USen"]);
-      console.log(res.data);
+      // console.log(res.data);
     });
   }
 }

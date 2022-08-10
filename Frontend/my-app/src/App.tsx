@@ -14,7 +14,7 @@ function App() {
   const styles = {
     paperContainer: {
         backgroundImage: `url(${BackgroundImage})`,
-        height: '100vh'
+        height: '100vh',
     }
 };
 
@@ -22,36 +22,82 @@ function App() {
 
   return (
     <div style={styles.paperContainer}>
-      <h1>Animal Crossing Villagers Info</h1>
+      <h1 style={{ display: "flex", paddingTop: '30px', justifyContent: "center" , textAlign: "center"}}>Animal Crossing Villagers</h1>
 
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <Button variant="contained" onClick={search}>New Villager</Button>
       </div>
 
       {villager === undefined ? (
         <div></div>
       ) : (
-        <div id="villager-result">
-          <h3>{villagerName}</h3>
-          <img src={villager["image_uri"]} />
-          <p>Birthday: {villager["birthday-string"]}</p>
-          <p>Species: {villager["species"]}</p>
-          <p>Gender: {villager["gender"]}</p>
+        <div
+          id="villager-result"
+          style={{
+            maxWidth: "500px",
+            margin: "0 auto",
+            padding: "75px 10px 0px 10px",
+          }}
+        >
+          <Paper sx={{ backgroundColor: villager["bubble-color"], color: villager["text-color"] }}>
+            <Grid
+              container
+              direction="column"
+              spacing={5}
+              sx={{
+                justifyContent: "center",
+              }}
+            >
 
-          <p>Catch phrase: {villager["catch-phrase"]}</p>
-          
-          <p>Hobby: {villager["hobby"]}</p>
-          <p>Personality: {villager["personality"]}</p>
-          <p>Saying: {villager["saying"]}</p>
-          
+              <Grid item sx={{display: "flex", justifyContent: "center"}}>
+                <Box>
+                  {villager["image_uri"] ? (
+                    <img
+                      height="200px"
+                      width="200px"
+                      alt={villagerName}
+                      src={villager["image_uri"]}
+                      style = {{borderRadius: 100}}
+                    ></img>
+                  ) : (
+                    <Skeleton width={300} height={300} />
+                  )}
+                </Box>
+              </Grid>
 
-          <p>Bubble colour: {villager["bubble-color"]}</p>
-          <p>Text colour: {villager["text-color"]}</p>
-        </div>
-
-        
+              <Grid item sx={{display: "flex", justifyContent: "center", paddingBottom: 5, textAlign: "center"}}>
+                <Box>
+                  {villager === undefined || villager === null ? (
+                    <h1></h1>
+                  ) : (
+                    <div>
+                      <h1>{villagerName}</h1>
+                      <p>
+                        ID: {villager["id"]}
+                        <br />
+                        Species: {villager["species"]}
+                        <br />
+                        Gender: {villager["gender"]}
+                        <br />
+                        Birthday: {villager["birthday-string"]}
+                        <br />
+                        Personality: {villager["personality"]}
+                        <br />
+                        Hobby: {villager["hobby"]}
+                        <br />
+                        Catch phrase: {villager["catch-phrase"]}
+                        <br />
+                        Saying: {villager["saying"]}
+                      </p>
+                    </div>
+                  )}
+                </Box>
+              </Grid>
+              
+            </Grid>
+          </Paper>
+          </div>
       )}
-
     </div>
   );
 

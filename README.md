@@ -4,4 +4,4 @@ I have chosen the Frontend and Data Science pathways, which are in their respect
 
 For my Frontend project, you can find it in `my-app` and start using `npm start`. 
 
-For the data science project, you can find it in the `submissions.ipynb` file. 
+For the data science project, you can find it in the `submission.ipynb` file. 
